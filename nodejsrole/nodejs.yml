@@ -1,0 +1,5 @@
+name: java playbook
+hosts: all 
+become: yes
+roles: 
+ - nodejs

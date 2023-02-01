@@ -1,0 +1,19 @@
+---
+# tasks file for javarole
+
+    - name:  install npm
+      ansible.builtin.yum: 
+        name: epel-release
+        state: present   
+      when: ansible_facts['distribution'] == "Centos"  
+    - name: update cache 
+      ansible.builtin.yum: 
+        update_cache: yes
+    - name:  install nodejs
+      ansible.builtin.yum: 
+        name: nodejs
+        state: present 
+    - name:  install npm
+      ansible.builtin.yum: 
+        name: npm
+        state: present         
