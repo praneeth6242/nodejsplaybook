@@ -9,11 +9,16 @@
     - name: update cache 
       ansible.builtin.yum: 
         update_cache: yes
+      when: ansible_facts['distribution'] == "Centos"
+    - name: update cache 
+      ansible.builtin.apt: 
+        update_cache: yes
+      when: ansible_facts['distribution'] == "Ubuntu"        
     - name:  install nodejs
-      ansible.builtin.yum: 
+      ansible.builtin.package: 
         name: nodejs
         state: present 
     - name:  install npm
-      ansible.builtin.yum: 
+      ansible.builtin.package: 
         name: npm
         state: present         
