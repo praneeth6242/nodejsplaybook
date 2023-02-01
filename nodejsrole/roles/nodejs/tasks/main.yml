@@ -1,7 +1,7 @@
 ---
 # tasks file for javarole
 
-    - name:  install npm
+    - name:  install epel-release
       ansible.builtin.yum: 
         name: epel-release
         state: present   
